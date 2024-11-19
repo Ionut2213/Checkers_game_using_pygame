@@ -4,4 +4,8 @@
 import pygame
 
 
+# import the checkers file in the main file
+from checkers.constants import WIDTH, HEIGHT
+
+
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
