@@ -8,6 +8,7 @@ FPS = 60
 # import the checkers file in the main file
 from checkers.constants import WIDTH, HEIGHT, SQUARE_SIZE
 from checkers.board import Board
+from checkers.game import Game
 
 # Window and caption(name of the app)
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -24,7 +25,7 @@ def get_row_cel_from_mouse(pos):
 def main():
     run = True
     clock = pygame.time.Clock()
-    board = Board()
+    game = Game(WIN)
 
 
 
@@ -38,12 +39,9 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 row, col = get_row_cel_from_mouse(pos)
-                piece = board.get_piece(row, col)
-                board.move(piece, 4, 3)
 
             
-        board.draw(WIN)
-        pygame.display.update()
+        game.update()
 
     pygame.quit()
 
